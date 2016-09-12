@@ -18,6 +18,12 @@ class ViewController: UIViewController {
         
         let shutterButton = UIButton(frame: CGRect(origin: CGPointZero, size: CGSize(width: underView.frame.size.height-15, height: underView.frame.size.height-15)))
         shutterButton.center = CGPoint(x: underView.frame.size.width/2, y: underView.frame.size.height/2)
+        shutterButton.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0)
+        shutterButton.layer.masksToBounds = true
+        shutterButton.layer.cornerRadius = shutterButton.frame.size.width/2
+        shutterButton.layer.borderColor = UIColor.whiteColor().CGColor
+        shutterButton.layer.borderWidth = 6
+        shutterButton.addTarget(self, action: #selector(tappdShutterButton(_:)), forControlEvents: .TouchUpInside)
         underView.addSubview(shutterButton)
         
         
@@ -41,9 +47,9 @@ class ViewController: UIViewController {
         // カメラ設定
     }
     
-    func tappdShutterButton(){
+    func tappdShutterButton(sender: UIButton) {
         //ボタン押した時の設定
-        
+        print("hoge")
     }
     
     
