@@ -7,6 +7,9 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    
+    var imageView:UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // 一旦ボタン作る
@@ -39,7 +42,19 @@ class ViewController: UIViewController {
     
     
     func setupDisplay(){
-        // スクリーン設定
+        // スクリーンの幅
+        let screenWidth = UIScreen.mainScreen().bounds.size.width;
+        // スクリーンの高さ
+        let screenHight = UIScreen.mainScreen().bounds.size.height;
+        
+        //カメラからの映像を移すimageViewの作成
+        if let iv = imageView {
+            iv.removeFromSuperview()
+        }
+        imageView = UIImageView()
+        imageView.frame = CGRectMake(0.0, 0.0, screenWidth, screenHight)
+        view.addSubview(imageView)
+        view.sendSubviewToBack(imageView)
     }
     
     
